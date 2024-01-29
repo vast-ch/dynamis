@@ -1,5 +1,5 @@
 import EmberRouter from '@ember/routing/router';
-import config from 'energaudi/config/environment';
+import config from 'dynamis/config/environment';
 
 export default class Router extends EmberRouter {
   location = config.locationType;
@@ -7,5 +7,5 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function () {
-  // Add route declarations here
+  this.route('assessment');
 });

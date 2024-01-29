@@ -1,5 +1,29 @@
-{{page-title "Energaudi"}}
+{{!
+  This example requires some changes to your config:
 
-<h2 id="title">Welcome to Ember</h2>
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+}}
+<div
+  {{scroll-into-view
+    shouldScroll=this.scroll.topInView
+    options=(hash behavior="smooth")
+  }}
+  class="bg-white min-h-lvh flex flex-col justify-between"
+>
+  <NotificationsContainer />
 
-{{outlet}}
+  <Menu />
+
+  {{outlet}}
+
+  <Footer />
+</div>
