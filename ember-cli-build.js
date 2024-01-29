@@ -7,6 +7,14 @@ module.exports = function (defaults) {
     'ember-cli-babel': { enableTypeScriptTransform: true },
 
     // Add options here
+    'responsive-image': {
+      images: [
+        {
+          include: 'assets/images/**/*',
+          widths: [2048, 1536, 1080, 750, 640],
+        },
+      ],
+    },
   });
 
   const { Webpack } = require('@embroider/webpack');
@@ -28,6 +36,10 @@ module.exports = function (defaults) {
       webpackConfig: {
         module: {
           rules: [
+            {
+              resourceQuery: /responsive/,
+              use: require('@ember-responsive-image/webpack').setupLoaders(),
+            },
             {
               test: /.css$/i,
               use: [
