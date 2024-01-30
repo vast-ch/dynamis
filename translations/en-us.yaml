@@ -5,7 +5,7 @@ hero:
   learn-more: Learn more
 features-section:
   heading: Lower your energy consumption. Start using our app today.
-  description: Our two-stage method enhances prediction accuracy and reliability, providing crucial insights to prioritize renovations and drive sustainable progress in line with the Energy Strategy 2050 goals.
+  description: Our two-stage method enhances prediction accuracy and reliability, providing crucial insights to prioritize renovations an drive sustainable progress in line with the Energy Strategy 2050 goals.
   w01:
     heading: Quick
     description: We just need to know your address. That's it. No long forms. No more of your time needed.
@@ -15,3 +15,19 @@ features-section:
   w03:
     heading: Affordable
     description: We think this data should be free at best, but also we need some resources for future development.
+pricing:
+  heading: Simple pricing, no-tricks
+  description: We believe in transparency and fair business practices. No extras, no hidden fees.
+  option1:
+    heading: One property, full assessment
+    description: All in one package.
+    what-is-included: What's included
+    feature1: EPC like rating
+    feature2: Neighbourhood, city and canton comparisons
+    feature3: Breakdown of the precision of the calculations
+    feature4: PDF with all the evaluations
+  call-to-action:
+    heading: One time payment
+    amount: CHF 5
+    button: Get access
+
