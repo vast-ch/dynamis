@@ -28,21 +28,13 @@
     </button>
   </div>
   <div class="hidden lg:flex lg:gap-x-12">
-    <button
-      type="button"
-      {{on "click" (fn this.scroll.to "hero")}}
-      class="text-sm font-semibold leading-6 text-gray-900"
-    >{{t "menu.hero"}}</button>
-    <button
-      type="button"
-      {{on "click" (fn this.scroll.to "features")}}
-      class="text-sm font-semibold leading-6 text-gray-900"
-    >{{t "menu.features"}}</button>
-    <button
-      type="button"
-      {{on "click" (fn this.scroll.to "pricing")}}
-      class="text-sm font-semibold leading-6 text-gray-900"
-    >{{t "menu.pricing"}}</button>
+    {{#each @menuItems as |item|}}
+      <button
+        type="button"
+        {{on "click" (fn this.scroll.to item.scrollTo)}}
+        class="text-sm font-semibold leading-6 text-gray-900"
+      >{{t item.label}}</button>
+    {{/each}}
   </div>
   <div class="hidden lg:flex lg:flex-1 lg:justify-end">
     {{! <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in

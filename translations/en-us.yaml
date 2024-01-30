@@ -2,12 +2,14 @@ menu:
   hero: Product
   features: Features
   pricing: Pricing
+  company: vast.ch
+  close: Close menu
 hero:
   heading: Energy Performance Certificate in a click
   description: Boost your family home's energy efficiency with our cutting-edge EPC computation service. Using machine learning and real data, we prioritize renovations and track their impact, saving you time and money while building a sustainable future for your loved ones.
   get-started: Get started
   learn-more: Learn more
-features-section:
+features:
   heading: Lower your energy consumption. Start using our app today.
   description: Our two-stage method enhances prediction accuracy and reliability, providing crucial insights to prioritize renovations an drive sustainable progress in line with the Energy Strategy 2050 goals.
   w01:
@@ -34,4 +36,13 @@ pricing:
     heading: One time payment
     amount: CHF 5
     button: Get access
-
+footer:
+  newsletter:
+    heading: Subscribe to our newsletter
+    description: The latest news, articles, and resources, sent to your inbox weekly.
+    label: Email address
+    placeholder: Enter your email
+    button: Subscribe
+  copyright:
+    company: vast.ch
+    github: Github
