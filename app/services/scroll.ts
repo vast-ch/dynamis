@@ -1,9 +1,13 @@
 import Service from '@ember/service';
-import { tracked } from '@glimmer/tracking';
-import { action } from '@ember/object';
+import type RouterService from '@ember/routing/router-service';
+import { service } from '@ember/service';
 
 export default class ScrollService extends Service {
-  @tracked inView: string | undefined = undefined;
+  @service declare router: RouterService;
+
+  get inView() {
+    return this.router.currentRoute.queryParams['scrollTo'];
+  }
 
   get heroInView() {
     return this.inView === 'hero';
@@ -15,10 +19,6 @@ export default class ScrollService extends Service {
 
   get pricingInView() {
     return this.inView === 'pricing';
-  }
-
-  @action to(newValue: string) {
-    this.inView = newValue;
   }
 }
 

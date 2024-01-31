@@ -27,13 +27,13 @@
         >
           {{t "hero.get-started"}}
         </LinkTo>
-        <button
-          type="button"
+        <LinkTo
           class="text-sm font-semibold leading-6 text-gray-900"
-          {{on "click" (fn this.scroll.to "features")}}
+          @route="index"
+          @query={{hash scrollTo="features"}}
         >
           {{t "hero.learn-more"}}
-          <span aria-hidden="true">→</span></button>
+          <span aria-hidden="true">→</span></LinkTo>
       </div>
     </div>
     <div class="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
