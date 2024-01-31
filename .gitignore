@@ -26,3 +26,6 @@
 
 # OSX stuff
 .DS_Store
+
+# IDE stuff
+.vscode
