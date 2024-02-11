@@ -1,7 +1,10 @@
-<nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+<nav
+  class="flex items-center justify-between p-6 lg:px-8"
+  aria-label={{t "menu.global"}}
+>
   <div class="flex lg:flex-1">
     <a href="#" class="-m-1.5 p-1.5">
-      <span class="sr-only">Your Company</span>
+      <span class="sr-only">{{t "company.name"}}</span>
       <ResponsiveImage class="!h-8 !w-auto" @src={{this.logo}} />
     </a>
   </div>
