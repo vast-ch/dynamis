@@ -12,7 +12,13 @@
   }
   ```
 }}
-<div class="bg-white">
+<div
+  {{scroll-into-view
+    shouldScroll=this.scroll.topInView
+    options=(hash behavior="smooth")
+  }}
+  class="bg-white"
+>
   <Menu />
 
   {{outlet}}

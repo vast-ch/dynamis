@@ -20,6 +20,10 @@ export default class ScrollService extends Service {
   get pricingInView() {
     return this.inView === 'pricing';
   }
+
+  get topInView() {
+    return this.inView === 'top';
+  }
 }
 
 // Don't remove this declaration: this is what enables TypeScript to resolve
