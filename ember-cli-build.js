@@ -6,12 +6,25 @@ module.exports = function (defaults) {
   const app = new EmberApp(defaults, {
     'ember-cli-babel': { enableTypeScriptTransform: true },
 
-    // Add options here
+    // for <ResponsiveImage />
     'responsive-image': {
       images: [
         {
           include: 'assets/images/**/*',
           widths: [2048, 1536, 1080, 750, 640],
+        },
+      ],
+    },
+
+    // For PWA /config/manifest.js
+    'ember-cli-image-transformer': {
+      images: [
+        {
+          inputFilename: 'public/assets/images/logo-square.svg',
+          outputFileName: 'appicon-',
+          convertTo: 'png',
+          destination: 'assets/pwa/',
+          sizes: [32, 192, 280, 512],
         },
       ],
     },
