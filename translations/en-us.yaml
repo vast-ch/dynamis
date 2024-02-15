@@ -1,3 +1,5 @@
+company:
+  name: vast.ch
 application:
   name: Energaudi
 menu:
@@ -8,10 +10,19 @@ menu:
   close: Close menu
   open: Open main menu
   global: Global
+assessment:
+  page-title: Assessment
+  heading: Assessment
+  address:
+    label: Address
+    hint: That's the only thing we need
+  cancel: Cancel
+  submit: Submit
 hero:
   heading: Energy Performance Certificate in a click
   description: Boost your family home's energy efficiency with our cutting-edge EPC computation service. Using machine learning and real data, we prioritize renovations and track their impact, saving you time and money while building a sustainable future for your loved ones.
   get-started: Get started
+  title: Traditional Swiss wooden house with futuristic touches like solar panels.
   learn-more: Learn more
 features:
   heading: Lower your energy consumption. Start using our app today.
