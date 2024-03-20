@@ -5,8 +5,8 @@ module.exports = function (/* environment, appConfig */) {
   // supported properties
 
   return {
-    name: 'energaudi',
-    short_name: 'energaudi',
+    name: 'dynamis',
+    short_name: 'dynamis',
     description: '',
     start_url: '/',
     scope: '/',

@@ -1,9 +1,9 @@
 import Component from '@glimmer/component';
 import { service } from '@ember/service';
-import type ScrollService from 'energaudi/services/scroll';
+import type ScrollService from 'dynamis/services/scroll';
 // @ts-expect-error ember-responsive-image is in beta
 import logo from '/assets/images/logo-long.png?lqip=inline&widths=400&responsive';
-import type MobileMenuService from 'energaudi/services/mobile-menu';
+import type MobileMenuService from 'dynamis/services/mobile-menu';
 import { action } from '@ember/object';
 import type RouterService from '@ember/routing/router-service';
 
