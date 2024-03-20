@@ -1,6 +1,6 @@
 /**
  * Type declarations for
- *    import config from 'energaudi/config/environment'
+ *    import config from 'dynamis/config/environment'
  */
 declare const config: {
   environment: string;

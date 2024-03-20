@@ -1,7 +1,7 @@
 import Application from '@ember/application';
 import Resolver from 'ember-resolver';
 import loadInitializers from 'ember-load-initializers';
-import config from 'energaudi/config/environment';
+import config from 'dynamis/config/environment';
 
 import './app.css';
 

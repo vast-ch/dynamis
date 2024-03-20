@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { setupTest } from 'energaudi/tests/helpers';
+import { setupTest } from 'dynamis/tests/helpers';
 
 module('Unit | Route | application', function (hooks) {
   setupTest(hooks);
