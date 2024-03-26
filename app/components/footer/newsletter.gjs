@@ -4,11 +4,35 @@ import { Input } from "@frontile/forms";
 import { Button } from "@frontile/buttons";
 import { Form } from "@frontile/forms";
 import { t } from "ember-intl";
+import { inject as service } from "@ember/service";
 
 export default class FooterNewsletter extends Component {
+  @service notifications;
+  @service intl;
+
   @action
-  onChange(foo, bar, baz) {
-    console.log(foo, bar, baz);
+  onChange(data, event, bar) {
+    console.log({ data }, { event }, { bar });
+    if (event === "submit") {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(data).toString(),
+      })
+        .then(() => {
+          this.notifications.add(this.intl.t("newsletter.subscribed"), {
+            appearance: "success",
+            preserve: true,
+          });
+        })
+        .catch((error) => {
+          console.log(error);
+          this.notifications.add(this.intl.t("newsletter.error"), {
+            appearance: "error",
+            preserve: true,
+          });
+        });
+    }
   }
 
   <template>
