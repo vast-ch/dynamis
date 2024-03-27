@@ -1,0 +1,3 @@
+add|ember-template-lint|no-unknown-arguments-for-builtin-components|55|30|55|30|44b3bbc8409d452f5de5ac6c9599354633b9b626|1711497600000|1714086000000|1716678000000|app/components/footer/newsletter.gjs
+add|ember-template-lint|no-unknown-arguments-for-builtin-components|63|12|63|12|44b3bbc8409d452f5de5ac6c9599354633b9b626|1711497600000|1714086000000|1716678000000|app/components/footer/newsletter.gjs
+add|ember-template-lint|require-input-label|55|8|55|8|7102b28f66c8e33528bf52211cca3767c0bb75cf|1711497600000|1714086000000|1716678000000|app/components/footer/newsletter.gjs
