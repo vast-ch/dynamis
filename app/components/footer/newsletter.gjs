@@ -56,8 +56,7 @@ export default class FooterNewsletter extends Component {
             autocomplete="email"
             placeholder={{t "footer.newsletter.placeholder"}}
             @type="email"
-            @name="email"
-
+            name="email"
           />
         </div>
         <div class="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
