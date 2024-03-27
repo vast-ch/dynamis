@@ -58,9 +58,10 @@ footer:
     label: Email address
     placeholder: Enter your email
     button: Subscribe
-    subscribed: Subscribed
-    error: Something went wrong, please try again later
   copyright:
     company: vast.ch
     github: Github
     copy: ©️
+newsletter:
+  subscribed: Subscribed
+  error: Something went wrong, please try again later
