@@ -11,27 +11,30 @@ export default class FooterNewsletter extends Component {
   @service intl;
 
   @action
-  onChange(data, event, bar) {
-    console.log({ data }, { event }, { bar });
+  async onChange(data, event) {
     if (event === "submit") {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(data).toString(),
-      })
-        .then(() => {
-          this.notifications.add(this.intl.t("newsletter.subscribed"), {
-            appearance: "success",
-            preserve: true,
-          });
-        })
-        .catch((error) => {
-          console.log(error);
-          this.notifications.add(this.intl.t("newsletter.error"), {
-            appearance: "error",
-            preserve: true,
-          });
+      try {
+        const response = await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams(data).toString(),
         });
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        this.notifications.add(this.intl.t("newsletter.subscribed"), {
+          appearance: "success",
+          preserve: true,
+        });
+      } catch (error) {
+        console.log(error);
+        this.notifications.add(this.intl.t("newsletter.error"), {
+          appearance: "error",
+          preserve: true,
+        });
+      }
     }
   }
 
@@ -49,6 +52,7 @@ export default class FooterNewsletter extends Component {
       </div>
 
       <Form class="mt-6 sm:flex sm:max-w-md lg:mt-0" @onChange={{this.onChange}}>
+        <Input @type="hidden" @name="form-name" @value="newsletter" />
         <label for="email" class="sr-only">{{t "footer.newsletter.label" }}</label>
         <div class="w-full min-w-0">
           <Input
@@ -56,7 +60,7 @@ export default class FooterNewsletter extends Component {
             autocomplete="email"
             placeholder={{t "footer.newsletter.placeholder"}}
             @type="email"
-            name="email"
+            @name="email"
           />
         </div>
         <div class="mt-4 sm:ml-4 sm:mt-0 sm:flex-shrink-0">
@@ -66,7 +70,6 @@ export default class FooterNewsletter extends Component {
         </Button>
         </div>
       </Form>
-
     </div>
   </template>
 }
