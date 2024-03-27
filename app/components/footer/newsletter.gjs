@@ -51,6 +51,7 @@ export default class FooterNewsletter extends Component {
           }}</p>
       </div>
 
+      {{!-- When touching this also update: public/netlify/subscription-form.html --}}
       <Form class="mt-6 sm:flex sm:max-w-md lg:mt-0" @onChange={{this.onChange}}>
         <Input @type="hidden" @name="form-name" @value="newsletter" />
         <label for="email" class="sr-only">{{t "footer.newsletter.label" }}</label>
