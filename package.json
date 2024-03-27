@@ -35,6 +35,7 @@
     "@embroider/webpack": "^3.2.1",
     "@frontile/buttons": "0.17.0-alpha.13",
     "@frontile/forms": "0.17.0-alpha.13",
+    "@frontile/notifications": "0.17.0-alpha.14",
     "@frontile/theme": "0.17.0-alpha.13",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
