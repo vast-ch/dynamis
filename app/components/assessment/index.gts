@@ -16,7 +16,7 @@ export default class AssessmentComponent extends Component {
 
         {{#if (state.matches 'Point selection')}}
           <AssessmentPoint @state={{state}} @send={{send}} />
-        {{else if (state.matches 'Result')}}
+        {{else if (state.matches 'Assessment display')}}
           <AssesmentResult @state={{state}} @send={{send}} />
         {{else}}
           Out

@@ -1,13 +1,8 @@
 import { buildBaseURL, buildQueryParams } from '@ember-data/request-utils';
-import type { QueryRequestOptions } from '@warp-drive/core-types/request';
 
-export function geoQuery(address: string = ''): QueryRequestOptions {
+export function geoQuery(address: string = '') {
   const cacheOptions = {};
   const urlOptions = {
-    identifier: {
-      type: 'geo',
-    },
-    op: 'query',
     host: 'https://api3.geo.admin.ch',
     namespace: 'rest/services/ech',
     resourcePath: 'SearchServer',
@@ -26,6 +21,6 @@ export function geoQuery(address: string = ''): QueryRequestOptions {
     method: 'GET',
     headers,
     cacheOptions,
-    op: 'query',
+    op: 'geo',
   };
 }

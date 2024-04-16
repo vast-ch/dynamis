@@ -44,29 +44,20 @@ export interface GeoResponse {
   content: GeoModel[];
 }
 
-const parser = new DOMParser();
-
-const GeoHandler: Handler = {
+const AssessmentHandler: Handler = {
   async request<T>(context: RequestContext, next: NextFn<T>) {
-    if (context.request.op !== 'geo') return next(context.request);
+    if (context.request.op !== 'assessment') return next(context.request);
 
     try {
       const { content } = (await next(context.request)) as Response;
 
-      return content.results.map((item) => {
-        return {
-          // type: 'geo',
-          id: item.id,
-          labelPlainText: parser.parseFromString(item.attrs.label, 'text/html')
-            .body.textContent,
-          ...item.attrs,
-        };
-      }) as T;
+      console.log({ content });
+      return content as T;
     } catch (e) {
-      console.log('GeoHandler.request().catch()', { e });
+      console.log('AssessmentHandler.request().catch()', { e });
       throw e;
     }
   },
 };
 
-export default GeoHandler;
+export default AssessmentHandler;

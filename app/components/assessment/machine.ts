@@ -3,9 +3,10 @@ import { getService } from 'ember-statechart-component';
 
 import type { GeoModel } from '../../handlers/geo-handler';
 import { geoQuery } from 'dynamis/builders/geo-builder';
+import { assessmentQuery } from 'dynamis/builders/assessment-builder';
 
 export const machine = createMachine({
-  /** @xstate-layout N4IgpgJg5mDOIC5QENazrAtmAdgFwDEB7AJ0wDoAFIgS3wAJ0AbMAYzxqJwGIA5AUQAaAFQDaABgC6iUAAcisGhy4yQAD0QAmcQDZx5AMwAWAwFYAnHuOnTOowBoQAT0RGL5AIwAOAOymfxjoW4poAvqGOqOho2PjEZFS0DMxsyjjkAMpgyCSsABb0yBAQJBjkAMJ5bADW9LJ5JKhg3BLSSCDyimmqGgiaXh7k-R6aBuamIT6a-o4uCEY+RuTiXkZ2Y9PTqwbhkWgYsYSkFNR0eIxgLOyc6Vk5+YXFpWgVVay19Y3oLR5tcgpKG49LQDIYDUbjSbTHyzRAGAyaTwGDxGaYeXTmQI+XYgKIHXBHBKnZKXVI3TLZXIFIolMq8Ih1BpNbjCACalH4rVUnUBKnavWGYJGYwmmimM2cWgMOk8Pi8miCUy8BhWOhxeJiBPiJyS5xS1y4FPu1KeZQyRGwjK+zTZHK57R53X5IMGwwhovFMMlCAMcqRKNWpjWOgRRnV+01cWOiTOFyuaSNVMetJe5stn2ZGX4AEEAErlAAS9v+XSBzoQOkr5BMUyC5gCmnMvlh8xW5HMRg8Bi8tmRZjc4eiWC10eJetJBtuE-O8jOmQArgAjTBKDg4KD0ABmx24EC4YHIdAAbkRqgeNcOo0TdXGyYasvG6rqF8vV3QN9uyAhj0RWMg0q0xYdACTqgL06I+DK2zaIsQSmN4mgtt2PjkD4AbwZWtiaAqOwRLiEaXoSOqxvqCYPqkT5zhkS4rnga4fjue44AeP5nuQF6HNqMYkvG5LkewlH4C+tH0VuxzfjgJ5-gBUiiL83IgWWYGIBBUEmDBaw2AhLb+ChQQhh4OgeOY4hNr6g74lexE8XeU6PrOQnUa+dHvmJZDcGAJAkKQ5CyEw-6fhQHEjteJHTnx06CXgwlvuubmYBJUn-jcgFSAppZ8spCCqeQ0HiLBWnyi22H6EY5jlUYXjmNhOheKsFmRkR3Hjrx96RQ50XZqaaC3pO5AAJI4ICyBMNwWYADL8OUYhpQ6imZeoKn+IicE+D4HZipoCxeC2RhGPoPjiAi0r5YZUxhHhwVWc1vVke1z5dSmsC3eSY63ZAY38JN01AY6SmLdlkFeO25W1WtKomdhSGHUMCqmL60qrNM-gNYRXG5nA85MHg3CULm-AAGr9QA8gAqhkv3zTgwJ9Lo+jGGYlhHW4tgON6CqlbVqy6BMOj9F4ao4jgRAQHAqhXUR6W8tT5YALSoi28uIuIKuaB4Fig-0-So5xo43qR-1-QtvQ6LtpjVqD9YM5WZiC3sQ666FNl9XcSY0s88BzRlMtZUGLYBuQOhyl25XIZYhk6yF1ktbZiYPO7ZSVDUVpNFLoEA+iiHszDbiVQMKymGKpmR9db0G21xrJh75D0in6Bp-9vSVYiYziEGqI6JYCqm+zQfVnVhm1V2R0rCXTVl+FFdu91sCZBaYB12ADfG648qGCZ7cKl3la7aZ1adt2vZdkGQZj1xE+tXZFEdcvPsA+DQzGMzhkdos5j+wiINNqMXbIn49Znz1mFS+FJ7LPiciJVygVb403lDKUY+1jAvwWGVJCPZ2ydgPsqNE+U7b4QdlHG65cr4CQ6gNIaHARowPLPKV0T8kGdxQe-b0CIUJ7S7HKcQ3gAjykAU7GOLt7pzkeh7F6C0jZ33AiYQYrCbDKkMoXYqa9ax832mieE2JLoEUdtHMRJCZwPRnno8hw0mDUKyiidahgxRyOREELOcw1gGHbI2Tu+VOFVVMHw3RxDQHX0MU9YxF9UiQHMRnOUwNWG+A8CMBYR1dpoVlJYSwixDoYW8UQye+iorkH4F5UgYTwIqiWO4yscEgwmTZnMLaiIaqmCqpYPajZeFaIIaXfWWS-GkOfLXBOEZCkqU7OYIYQQYnaDKiiSwOlIKB1sN4EY391q4XtpZJqGNYBYzwAMvoxlhlqwFuiOqXDDLFU7ssQu+V+iQXMOhcI4QgA */
+  /** @xstate-layout N4IgpgJg5mDOIC5QENazrAtmAdgFwDEB7AJ0wDoAFIgS3wAJ0AbMAYzxqJ3IGUxkSrABb1kECCQzkAwkLYBregAchJVGADEAbQAMAXUSglRWDQ5dDIAB6IATAA4AjOQePbAZgCcAVh22A7Lbe-gA0IACeiAAs-lHkOvZRAGxRXkFBie4AvllhqOho2PjEZFS0DMxs5tx8AsKi4pJoMnKsiipq6NqOBkggxqbVljYIri5OHj5+gcFhkQju7rbkju6OUUGOOkme7sn+OXloGEWEpBTUdHiMYCzsnDX8giJiElIAckTKquoaACoATUoAFFdL0jCYzA9hnYnOM3F5fAEgqEInZ3EkVv57LYksEHO4EklDiB8idcGdSpcKrcqg9eE96q8mrBeERsN9OppASCwZYBlCLH0RmNXJMkTNUfN3NiVmsoolvMkkksoiSyYUKSULuVrpV7lwGXUXo0pDx2WBOb8eMCAIIAJWkAAk+X0BUNhYgkt7yKlAnjPP4lp57FLoglyJ4oqt7N4Vasld51cdNcVzmUrjc7tUGdnlLreABXABGmDMHBwUHoADNzhoIFwwOQ6AA3IjyJsarBa9PUvW0g2PPPGK5F0vluhV2tkBCtoisZDVMGuiGDaGehBbfyYzK2HSxPHeRw4uaIdyh8j+daxxzeuO2XHZXKklPdtNU3VZumGvjDgs8EsyzwCspzrBscCbOcO3ILtTm1DMaWzelfyqfNRwA8dgMnGtzlnHA2wXJd9C0Hp+UhD1QBGLcd1SPcD28I8TzRBBgn8cg8XjJJHE8HQQxlZMCjfSkdUzfUcxQ9g0PwMcgJAnCyA0MASBIUhyCUJhF2nChYJ7D9RIHcSDKkvAZInSt5MwPCCMXB5l30Mi1yFSjEGo8hd33ZIGOPWxT1GPdfU8QKFU8B8knsRIBPJd8RMQ78h1QkdpNtU00C-QdyAASRwKFkCYDQbQAGWBaQ-hXfpyPXZzN28QLIyVBwdFYpxHDDBBo3cS9ePPRxgn3QlHEi1NhIQ-skJ-IzEpM5K3lSsT6T7NK8EgfLgSKkqyvdSrrBc-xPExWwQ2PcKnGVXy9g6jxcRxewkliew9iTZ8dOikbFuQiaC2mlk3sNBaxOW95gQADVK+y3Qqpztr8oN4ivZIZVvbF9181JMV2bx7qSAI4aDYkntfOD01tAmKXoCAaFgdTkHCDRKHtYEADUMoAeQAVR4DaIZwGFRhazEuJ62IAhu-xtl8nr7AC1x-F28LbzjQahPg4nBNOGswDwYRJ3rRtm3w9tOxJl6Vai65qw1rXKys+cbK4OzwXKxzuY3WwoiiTwVgme643Cvakl8ujyC81YuMfJYAkVwnShNob1c1oRtaUlSSDUjS8C0mCjeGmOhLjy2oGtwjbOIsHV0FZ2qsmSXeJSex9zcQL7F8mrln6zyYldxqDhJHAiAgOBLGe4SHPLnmAFoNl8ie2NvTw3FxDx3e4t3I90mLRrikeKKh-3mKiHRyEWBIZZlPEEkavGjlVtfXrm8bjQaGb4HBp2eaVcWFXY7FcXxe6iVXl6f0DLvQfsyKQsgFBWnQFvLaVE-AB1Fr6JUcsEjeACLxABw0gFjUeKAlKrJPhQLADAyGIwFStx4kqDYOwsbegDrdX0ctvROEJISewmD4LYLikaZ4j8WRsg5B0dQJCK5Q3IYfShbtcR7VxLveY+8PZuxjHGNY7hExqnxtfQBn477xUkpNERPMZbOG4oEHie0nBKkcOLAIbk2En23L4Oul8XxaKwTo4B40-zoUAmZUCZBDEbhxPtPYOg9izxiO7M6sZIzRnavdTY+4XFD04R4nBuYEqfXwT9URm1SEuSiBjdiuJGpRlugkKIAcGKXiWGFBwt0FQPQ4b2NJ3CJLXEmuQL6GAcmZWyhwXKgSqo9W2MUpIpT9gVJRhiSMajMbY3WLjZpelYrpXacZLp2TdG3wMpAIZUNjw9TGTKB8-g0G3RRm7T2GMNiuy4rxR6V9TapP0uk9ZnTgTKVIPsqihI4j7m3HeBi7sdCVOYq7ZYoUMaBRSBsEMthlnr16e8gshCwEph+QU7iLg8SODcKCue7s5GIGCPzOMhyDo4l2k+J5Q0XmrMMt46SWUcpMH2XgIgSg7BHKPqGIMjjz67xYNWPAiAnAe1MQdGuljoxhGLEQYC7I7AqkPvY-lZ9nFhBIDQKAQhRUIF2BKwMUqLE9VlSAAA7jQCAeAhAuT3GEOQOq9XRCblDcVKxjXmLCma6x4KeVqtPk47YiKulZzJhTKm8wy7bxFMkOI3UHwxDjIUvEvkLzRl9txLYYVRYIs0c8om4bzbx0nJi0YhTnDjMCO7e6mM3XSj2pGVBMppiGqCDkHIQA */
   context: {
     searchPhrase: undefined,
     searchResults: [],
@@ -24,10 +25,6 @@ export const machine = createMachine({
 
   states: {
     'Point selection': {
-      on: {
-        NEXT: 'Result',
-      },
-
       states: {
         'Search address': {
           initial: 'Check phrase',
@@ -94,8 +91,6 @@ export const machine = createMachine({
               },
             },
 
-            Initial: {},
-
             'Address selection': {
               states: {
                 Initial: {
@@ -114,6 +109,8 @@ export const machine = createMachine({
                       internal: true,
                       actions: 'updateSelectedPoint',
                     },
+
+                    NEXT: '#assessmentForm.Assessment fetching',
                   },
                 },
               },
@@ -123,6 +120,7 @@ export const machine = createMachine({
 
             Error: {},
             'No addresses': {},
+            Initial: {},
           },
 
           initial: 'Initial',
@@ -132,9 +130,25 @@ export const machine = createMachine({
       type: 'parallel',
     },
 
-    Result: {
+    'Assessment display': {
       on: {
-        PREVIOUS: '#assessmentForm.Point selection',
+        PREVIOUS:
+          'Point selection.Select point.Address selection.Point selected',
+      },
+    },
+
+    'Assessment fetching': {
+      invoke: {
+        src: 'fetchAssessment',
+
+        onDone: {
+          target: '#assessmentForm.Assessment display',
+          actions: 'updateAssessment',
+          cond: 'New guard',
+        },
+
+        onError:
+          'Point selection.Select point.Address selection.Point selected',
       },
     },
   },
@@ -172,10 +186,19 @@ export const machine = createMachine({
   services: {
     fetchSearchResults: (context) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      console.log(geoQuery(context.searchPhrase));
       const ret = (getService(context, 'dynamisStore') as any).request(
         geoQuery(context.searchPhrase),
       );
       // console.log('fetchSearchResults()', ret);
+      return ret;
+    },
+    fetchAssessment: (context) => {
+      console.log({ context });
+      const ret = (getService(context, 'dynamisStore') as any).request(
+        assessmentQuery(context.selectedPoint.id), // TODO
+      );
+      console.log({ ret });
       return ret;
     },
   },
