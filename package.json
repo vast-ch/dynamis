@@ -34,10 +34,6 @@
     "@ember-data-types/request-utils": "^5.4.0-alpha.49",
     "@ember-data-types/store": "^5.4.0-alpha.49",
     "@ember-data-types/tracking": "^5.4.0-alpha.49",
-    "@ember-data/legacy-compat": "5.4.0-alpha.54",
-    "@ember-data/request": "5.4.0-alpha.54",
-    "@ember-data/request-utils": "5.4.0-alpha.54",
-    "@ember-data/rest": "^5.3.3",
     "@ember/optional-features": "^2.1.0",
     "@ember/string": "^3.1.1",
     "@ember/test-helpers": "^3.3.0",
@@ -78,7 +74,6 @@
     "ember-cli-image-transformer": "^7.0.0",
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-css-transitions": "^4.4.0",
-    "ember-data": "5.4.0-alpha.54",
     "ember-data-types": "^5.4.0-alpha.49",
     "ember-fetch": "^8.1.2",
     "ember-heroicons": "^0.5.0",
@@ -128,15 +123,20 @@
     "edition": "octane"
   },
   "dependencies": {
-    "@ember-data/adapter": "5.4.0-alpha.54",
-    "@ember-data/graph": "5.4.0-alpha.54",
-    "@ember-data/json-api": "5.4.0-alpha.54",
-    "@ember-data/model": "5.4.0-alpha.54",
-    "@ember-data/serializer": "5.4.0-alpha.54",
-    "@ember-data/store": "5.4.0-alpha.54",
-    "@ember-data/tracking": "5.4.0-alpha.54",
+    "@ember-data/adapter": "5.4.0-alpha.55",
+    "@ember-data/graph": "5.4.0-alpha.55",
+    "@ember-data/json-api": "5.4.0-alpha.55",
+    "@ember-data/model": "5.4.0-alpha.55",
+    "@ember-data/serializer": "5.4.0-alpha.55",
+    "@ember-data/store": "5.4.0-alpha.55",
+    "@ember-data/tracking": "5.4.0-alpha.55",
+    "ember-data": "5.4.0-alpha.55",
+    "@ember-data/rest": "5.4.0-alpha.55",
+    "@ember-data/request-utils": "5.4.0-alpha.55",
     "@ember-responsive-image/webpack": "^0.0.0",
-    "@warp-drive/core-types": "0.0.0-alpha.40"
+    "@ember-data/request": "5.4.0-alpha.55",
+    "@ember-data/legacy-compat": "5.4.0-alpha.55",
+    "@warp-drive/core-types": "0.0.0-alpha.41"
   },
   "packageManager": "pnpm@8.15.6+sha256.01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f"
 }
