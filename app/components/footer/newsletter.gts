@@ -29,6 +29,7 @@ export default class FooterNewsletter extends Component {
 
           // As any is necessary here even though
           // it's a recommended way from Netlify: https://docs.netlify.com/forms/setup/
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           body: new URLSearchParams(formData as any).toString(),
         });
 
@@ -69,9 +70,6 @@ export default class FooterNewsletter extends Component {
         @onChange={{this.onChange}}
       >
         <Input @type='hidden' name='form-name' @value='newsletter' />
-        <label for='email' class='sr-only'>{{t
-            'footer.newsletter.label'
-          }}</label>
         <div class='w-full min-w-0'>
           <Input
             id='email'

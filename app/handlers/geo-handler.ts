@@ -48,28 +48,22 @@ const parser = new DOMParser();
 
 const GeoHandler: Handler = {
   async request<T>(context: RequestContext, next: NextFn<T>) {
-    const { content } = (await next(context.request)) as Response;
+    try {
+      const { content } = (await next(context.request)) as Response;
 
-    return content.results.map((item) => {
-      return {
-        // type: 'geo',
-        id: item.id,
-        labelPlainText: parser.parseFromString(item.attrs.label, 'text/html')
-          .body.textContent,
-        ...item.attrs,
-      };
-    }) as T;
-
-    return {
-      links: {},
-      data: content.results.map((item) => {
+      return content.results.map((item) => {
         return {
-          type: 'geo',
+          // type: 'geo',
           id: item.id,
-          attributes: item.attrs,
+          labelPlainText: parser.parseFromString(item.attrs.label, 'text/html')
+            .body.textContent,
+          ...item.attrs,
         };
-      }),
-    } as T;
+      }) as T;
+    } catch (e) {
+      console.log('GeoHandler.request().catch()', { e });
+      throw e;
+    }
   },
 };
 

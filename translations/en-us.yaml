@@ -63,8 +63,8 @@ footer:
   newsletter:
     heading: Subscribe to our newsletter
     description: The latest news, articles, and resources, sent to your inbox weekly.
-    label: Email address
-    placeholder: Enter your email
+    label: Email
+    placeholder: john.doe@example.com
     button: Subscribe
   copyright:
     company: vast.ch

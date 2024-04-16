@@ -1,10 +1,11 @@
-import { createMachine, assign, raise } from 'xstate';
+import { createMachine, assign } from 'xstate';
 import { getService } from 'ember-statechart-component';
+
+import type { GeoModel } from '../../handlers/geo-handler';
 import { geoQuery } from 'dynamis/builders/geo-builder';
-import type { GeoModel } from 'dynamis/handlers/geo-handler';
 
 export const machine = createMachine({
-  /** @xstate-layout N4IgpgJg5mDOIC5QENazrAtmAdgFwDEB7AJ0wDoBlMZEgYwAsACZCCEjcgYQbDoGsmABwYlUYAMQBtAAwBdRKCFFYASzyqiORSAAeiAEwBWAIzkDADhMGAbDZkBmEwBYbJowHYANCACeiIwBOQPJnGRsHD0CLGUDnJw8AX0SfVHQ0bHxiMioaemZWdk4ePkERMXRpEwUkEGU1DS0dfQRjM0trO0cXN08ffwRnT1CjB2NAxw8TD2dA5NS0DEzCUgpqWkYWNg40cgA5ImFRcQkAFQBNAAUAUVkapRV1TW1alrbzK1t7J1d3bz9EA43OQjDIZNYTJFnB4LE55iA0ktcCscut8lsirtKERsEcKpILjc7jp6k8mq9DKYPp1vj0-v0Ao4RmNnAYXB5HNF4YiMsjsms8ptCjtYFQcWA8SdKNcAIIAJS4AAlibVSY0XqAWhEbKFIqM2VEjEZ4gyEKNnOYIiY3NEXNMDNzFrysqtcgAbPh4YREVT4KgAVwARph1BocFAmAAzVYSCBaMDkX0ANyI-ATPKwfNd1A9dC9yl9eADwdDvoj0bICGTRDoyHVdxVDwaz2aiBMMlc5As8QsBkCQUCNkC1lNpgc5EcdjCNhhdjijvSmZdqLAufzPr9lCDIbwYfLMbjOAT1bT5Azy357s93sLxZ3e6jqyrOBTtfr8ik1RJj3VrYQ7c7bsHF7ftgiHEcAQQDkDHIQIPCiSEZFGKc5hSBEnSXFEBTXG9N23Utw0fMgJDAEgSFIcghDdOsKwoc8sxXHCCzwktdzLIjMGfV862eBt5G-ZtyU1NsOx1ICQIHcCDFNBwhi7Nk7CMIchnsJI0Po5dsOvZiixlbYMCYdA12ecgAEkcCeZA3QkaUABlri4U5GzqH8Wwpf9jRgmwlMieDZkCJwLFHOwJwMZwLBiaxTHBGwFyRTSrzzXDdP0tBDNXT0TMuDcvSMz1IBs657Mc5y1Tc4T-w8BwQjBcFqrgsILA8IxTVmIwQXC2SDAMJDmua5w4udLCqDoDhcHIPTMVgdKNgYCQ9muAANJz+NVVyhL0SkZAnExrAMZr+3iSJTXbHVZhkWwxkhVwjDCwbMMvShRrAcaZQw5YJEuOVrgANVMgB5ABVShSvWjVNtaUEdr2g7jQcY7IKNWCJhMOCO1meDuuSNCcCICA4B0DSsIEslwZaABaMLTXJ3aatieCp2tQcLFQhZFwvbNBQKVL4DWwSycMZxTX2i1apkfqjVRix7o5ldZoxEVuF4ARJXQEnf3cjxpMg6r2oZodLBsWwLE8WL1PehiBXl4VOAOVWwHV8qIaGGDqvCZxoWHW6opkwIYKsWqXFhFw4Jly3cmtnmxVxcpxEdjaWhd8g3ZsD2EO94xR1k8gPCtbrjGNd2w4SnNtJy+OBag+JzFk5x3GiXPYUCYWjAsZOFP7WFLu6s22fi4bS6SnS7wI-cyArv8oh1Axa-rpqbCb0ddstJw2XFocoWLgeMqHnKzIsjQrInzXhxrj258b6rWtunOIjZYDrFmSwBvN9nw8H9db0mkV0uMjayoTm2MIZgxi9lqrMXa8NWoyDbh2EClhhwxCqr3dCb8S470-n6b+Bk8p5hMuZSybpj4VRcLMduYCwQQMhA4UcLNzCmDrq3LWSEHBGC3o9DByUJo81-plLQ5BsqFl4XmSAxCIbTFbuQkWusF79lHIOEE4JPYWAXiHBw7DOZMT3tcMipAxEtGsDMCcMIHAdnhvYQcMkZwdV7LYLW8NUbxA0YxMut47Y2ydPotswEQi2E8FPbsHYYGmg5GYOCkV4JNVmLJZxaxnq4C8a0EIrcApXSUa4Jq1MnCKLglrKwQ5TBY1fv3R68ScDcKmjNfIiT4IghZvDNepCF7-AGEbYxrCZws05MOdRxShqlLGuUt6aC8CJOAm3CKNpbociGBBVpFpPAdJhBMeqkJsaJCAA */
+  /** @xstate-layout N4IgpgJg5mDOIC5QENazrAtmAdgFwDEB7AJ0wDoBlMZEgYwAsACZCCEjcgYQbDoGsmABwYlUYAMQBtAAwBdRKCFFYASzyqiORSAAeiAEwBWAIzkDADhMGAbDZkBmEwBYbJowHYANCACeiIwBOQPJnGRsHD0CLGUDnJw8AX0SfVHQ0bHxiMioaemZWdk4ePkERMXRpEwUkEGU1DS0dfQRjM0trO0cXN08ffwRnT1CjB2NAxw8TD2dA5NS0DEzCUgpqWkYWNg40cgA5ImFRcQkAFQBNAAUAUVkapRV1TW1alrbzK1t7J1d3bz9EA43OQjDIZNYTJFnB4LE55iA0ktcCscut8lsirtKERsEcKpILjc7jp6k8mq9DKYPp1vj0-v0Ao4RmNnAYXB5HNF4YiMsjsms8ptCjtYFQcWA8SdKNcAIIAJS4AAlibVSY0XqAWhEbKFIqM2VEjEZ4gyEKNnOYIiY3NEXNMDNzFrysqtcgAbPh4YREVT4KgAVwARph1BocFAmAAzVYSCBaMDkX0ANyI-ATPKwfNd1A9dC9yl9eADwdDvoj0bICGTRDoyHVdxVDwaz2aiBMMlc5As8QsBkCQUCNkC1lNpgc5EcdjCNhhdjijvSmZdqLAufzPr9lCDIbwYfLMbjOAT1bT5Azy357s93sLxZ3e6jqyrOBTtfr8ik1RJj3VrYQ7c7bsHF7ftgiHEcAQQDkDHIQIPCiSEZFGKc5hSBEnSXFEBTXG9N23Utw0fMgJDAEgSFIcghDdOsKwoc8sxXHCCzwktdzLIjMGfV862eBt5G-ZtyU1NsOx1ICQIHcCDFNBwhi7Nk7CMIchnsJI0Po5dsOvZiixlbYMCYdA12ecgAEkcCeZA3QkaUABlri4U5GzqH8Wwpf9jRgmwlMieDZkCJwLFHOwJwMZwLBiaxTHBGwFyRTSrzzXDdP0tBDNXT0TMuDcvSMz1IBs657Mc5y1Tc4T-w8BwQjBcFqrgsILA8IxTVmIwQXC2SDAMJDmua5w4udLCqDoDhcHIPTMVgdKNgYCQ9muAANJz+NVVyhL0SkZAnExrAMZr+3iSJTXbHVZhkWwxkhVwjDCwbMMvShRrAca5Tgf03TwCRLjla4ADVTIAeQAVUoUr1o1TbWlBHa9oO40HGOyCjVgiYTDgjtZng7rkjQnAiAgOAdA0rCBLJSGWgAWjC01Kd2mrYhiGJvKNWwjHui9s0FApUvgNbBIpwxnFNfaLVq2JLAu6rbo5hiBVmjERW4XgBEldAyd-dyPGkyDpfIeC50sGxbAsTxYvUjDOZXBXhU4A41bADXyqhoYYOq8JnGhYdbqimTAhgqxapcWEXDg2WErRIVebFXFynEJ2NpaV3yHdmxPYQn3jFHWT9atbrjGND3w+GnNtJyhPBag+JzFk5x3GiDwbFhQIRaMCwU4UyI9vtWFi8ejKkp0u8CP3MgK7-KIdQMWv66apvqtHXbLScNkZEbgKZj7rmmJysyLI0Kzx614ca892fG+b1rbtzq7gOsWZLAGi3FytrTB93yaRXS4yNrKxO2zCGYMYvZaqzF2ojVqMh24dhDkCRGQIw7P3iiXAe65byfwMnlPMJlzKWTdEfCqLhZgdxAWCMBkIHCjgsCENodc27ayQg4dmSChr9x3ug3m39MpaHINlQsXC8yQAIVDaYbcSGi2lk3fso5BwgnBF7CwTdQ4OC3oxMut5rhkVIMIlo1gZgThhA4DsiN7CDhkjODqvZbDa0RujeIqi35oL9PbW2TodFtmAjQ7y8FBzdg7FA00HIzBwUivBJqsxZIOJGmNSGf9K59hBNQxGq8iFN3+AMSmTg5FwSiBE600JTZRKejEianD0CzXcVBDwiSApXXka4JqppjYGKYTOahnJhwqJYQ9bMz1XrvU+pU4C7cIo2luhyIYEEBhpxBFVJSMIJj1UhLjRIQA */
   context: {
     searchPhrase: undefined,
     searchResults: [],
@@ -124,11 +125,11 @@ export const machine = createMachine({
       states: {
         'Address search': {
           on: {
-            NEXT: 'Assessment',
+            NEXT: 'Result',
           },
         },
 
-        Assessment: {
+        Result: {
           on: {
             PREVIOUS: 'Address search',
           },
@@ -172,9 +173,11 @@ export const machine = createMachine({
   services: {
     fetchSearchResults: (context) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return (getService(context, 'dynamisStore') as any).request(
+      const ret = (getService(context, 'dynamisStore') as any).request(
         geoQuery(context.searchPhrase),
       );
+      // console.log('fetchSearchResults()', ret);
+      return ret;
     },
   },
 });
