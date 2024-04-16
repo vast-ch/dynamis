@@ -5,7 +5,7 @@ import type { GeoModel } from '../../handlers/geo-handler';
 import { geoQuery } from 'dynamis/builders/geo-builder';
 
 export const machine = createMachine({
-  /** @xstate-layout N4IgpgJg5mDOIC5QENazrAtmAdgFwDEB7AJ0wDoBlMZEgYwAsACZCCEjcgYQbDoGsmABwYlUYAMQBtAAwBdRKCFFYASzyqiORSAAeiAEwBWAIzkDADhMGAbDZkBmEwBYbJowHYANCACeiIwBOQPJnGRsHD0CLGUDnJw8AX0SfVHQ0bHxiMioaemZWdk4ePkERMXRpEwUkEGU1DS0dfQRjM0trO0cXN08ffwRnT1CjB2NAxw8TD2dA5NS0DEzCUgpqWkYWNg40cgA5ImFRcQkAFQBNAAUAUVkapRV1TW1alrbzK1t7J1d3bz9EA43OQjDIZNYTJFnB4LE55iA0ktcCscut8lsirtKERsEcKpILjc7jp6k8mq9DKYPp1vj0-v0Ao4RmNnAYXB5HNF4YiMsjsms8ptCjtYFQcWA8SdKNcAIIAJS4AAlibVSY0XqAWhEbKFIqM2VEjEZ4gyEKNnOYIiY3NEXNMDNzFrysqtcgAbPh4YREVT4KgAVwARph1BocFAmAAzVYSCBaMDkX0ANyI-ATPKwfNd1A9dC9yl9eADwdDvoj0bICGTRDoyHVdxVDwaz2aiBMMlc5As8QsBkCQUCNkC1lNpgc5EcdjCNhhdjijvSmZdqLAufzPr9lCDIbwYfLMbjOAT1bT5Azy357s93sLxZ3e6jqyrOBTtfr8ik1RJj3VrYQ7c7bsHF7ftgiHEcAQQDkDHIQIPCiSEZFGKc5hSBEnSXFEBTXG9N23Utw0fMgJDAEgSFIcghDdOsKwoc8sxXHCCzwktdzLIjMGfV862eBt5G-ZtyU1NsOx1ICQIHcCDFNBwhi7Nk7CMIchnsJI0Po5dsOvZiixlbYMCYdA12ecgAEkcCeZA3QkaUABlri4U5GzqH8Wwpf9jRgmwlMieDZkCJwLFHOwJwMZwLBiaxTHBGwFyRTSrzzXDdP0tBDNXT0TMuDcvSMz1IBs657Mc5y1Tc4T-w8BwQjBcFqrgsILA8IxTVmIwQXC2SDAMJDmua5w4udLCqDoDhcHIPTMVgdKNgYCQ9muAANJz+NVVyhL0SkZAnExrAMZr+3iSJTXbHVZhkWwxkhVwjDCwbMMvShRrAca5Tgf03TwCRLjla4ADVTIAeQAVUoUr1o1TbWlBHa9oO40HGOyCjVgiYTDgjtZng7rkjQnAiAgOAdA0rCBLJSGWgAWjC01Kd2mrYhiGJvKNWwjHui9s0FApUvgNbBIpwxnFNfaLVq2JLAu6rbo5hiBVmjERW4XgBEldAyd-dyPGkyDpfIeC50sGxbAsTxYvUjDOZXBXhU4A41bADXyqhoYYOq8JnGhYdbqimTAhgqxapcWEXDg2WErRIVebFXFynEJ2NpaV3yHdmxPYQn3jFHWT9atbrjGND3w+GnNtJyhPBag+JzFk5x3GiDwbFhQIRaMCwU4UyI9vtWFi8ejKkp0u8CP3MgK7-KIdQMWv66apvqtHXbLScNkZEbgKZj7rmmJysyLI0Kzx614ca892fG+b1rbtzq7gOsWZLAGi3FytrTB93yaRXS4yNrKxO2zCGYMYvZaqzF2ojVqMh24dhDkCRGQIw7P3iiXAe65byfwMnlPMJlzKWTdEfCqLhZgdxAWCMBkIHCjgsCENodc27ayQg4dmSChr9x3ug3m39MpaHINlQsXC8yQAIVDaYbcSGi2lk3fso5BwgnBF7CwTdQ4OC3oxMut5rhkVIMIlo1gZgThhA4DsiN7CDhkjODqvZbDa0RujeIqi35oL9PbW2TodFtmAjQ7y8FBzdg7FA00HIzBwUivBJqsxZIOJGmNSGf9K59hBNQxGq8iFN3+AMSmTg5FwSiBE600JTZRKejEianD0CzXcVBDwiSApXXka4JqppjYGKYTOahnJhwqJYQ9bMz1XrvU+pU4C7cIo2luhyIYEEBhpxBFVJSMIJj1UhLjRIQA */
+  /** @xstate-layout N4IgpgJg5mDOIC5QENazrAtmAdgFwDEB7AJ0wDoAFIgS3wAJ0AbMAYzxqJwGIA5AUQAaAFQDaABgC6iUAAcisGhy4yQAD0QAmcQDZx5AMwAWAwFYAnHuOnTOowBoQAT0RGL5AIwAOAOymfxjoW4poAvqGOqOho2PjEZFS0DMxsyjjkAMpgyCSsABb0yBAQJBjkAMJ5bADW9LJ5JKhg3BLSSCDyimmqGgiaXh7k-R6aBuamIT6a-o4uCEY+RuTiXkZ2Y9PTqwbhkWgYsYSkFNR0eIxgLOyc6Vk5+YXFpWgVVay19Y3oLR5tcgpKG49LQDIYDUbjSbTHyzRAGAyaTwGDxGaYeXTmQI+XYgKIHXBHBKnZKXVI3TLZXIFIolMq8Ih1BpNbjCACalH4rVUnUBKnavWGYJGYwmmimM2cWgMOk8Pi8miCUy8BhWOhxeJiBPiJyS5xS1y4FPu1KeZQyRGwjK+zTZHK57R53X5IMGwwhovFMMlCAMcqRKNWpjWOgRRnV+01cWOiTOFyuaSNVMetJe5stn2ZGX4AEEAErlAAS9v+XSBzoQOkr5BMUyC5gCmnMvlh8xW5HMRg8Bi8tmRZjc4eiWC10eJetJBtuE-O8jOmQArgAjTBKDg4KD0ABmx24EC4YHIdAAbkRqgeNcOo0TdXGyYasvG6rqF8vV3QN9uyAhj0RWMg0q0xYdACTqgL06I+DK2zaIsQSmN4mgtt2PjkD4AbwZWtiaAqOwRLiEaXoSOqxvqCYPqkT5zhkS4rnga4fjue44AeP5nuQF6HNqMYkvG5LkewlH4C+tH0VuxzfjgJ5-gBUiiL83IgWWYGIBBUEmDBaw2AhLb+ChQQhh4OgeOY4hNr6g74lexE8XeU6PrOQnUa+dHvmJZDcGAJAkKQ5CyEw-6fhQHEjteJHTnx06CXgwlvuubmYBJUn-jcgFSAppZ8spCCqeQ0HiLBWnyi22H6EY5jlUYXjmNhOheKsFmRkR3Hjrx96RQ50XZqaaC3pO5AAJI4ICyBMNwWYADL8OUYhpQ6imZeoKn+IicE+D4HZipoCxeC2RhGPoPjiAi0r5YZUxhHhwVWc1vVke1z5dSmsC3eSY63ZAY38JN01AY6SmLdlkFeO25W1WtKomdhSGHUMCqmL60qrNM-gNYRXG5nA85MHg3CULm-AAGr9QA8gAqhkv3zTgwJ9Lo+jGGYlhHW4tgON6CqlbVqy6BMOj9F4ao4jgRAQHAqhXUR6W8tT5YALSoi28uIuIKuaB4Fig-0-So5xo43qR-1-QtvQ6LtpjVqD9YM5WZiC3sQ666FNl9XcSY0s88BzRlMtZUGLYBuQOhyl25XIZYhk6yF1ktbZiYPO7ZSVDUVpNFLoEA+iiHszDbiVQMKymGKpmR9db0G21xrJh75D0in6Bp-9vSVYiYziEGqI6JYCqm+zQfVnVhm1V2R0rCXTVl+FFdu91sCZBaYB12ADfG648qGCZ7cKl3la7aZ1adt2vZdkGQZj1xE+tXZFEdcvPsA+DQzGMzhkdos5j+wiINNqMXbIn49Znz1mFS+FJ7LPiciJVygVb403lDKUY+1jAvwWGVJCPZ2ydgPsqNE+U7b4QdlHG65cr4CQ6gNIaHARowPLPKV0T8kGdxQe-b0CIUJ7S7HKcQ3gAjykAU7GOLt7pzkeh7F6C0jZ33AiYQYrCbDKkMoXYqa9ax832mieE2JLoEUdtHMRJCZwPRnno8hw0mDUKyiidahgxRyOREELOcw1gGHbI2Tu+VOFVVMHw3RxDQHX0MU9YxF9UiQHMRnOUwNWG+A8CMBYR1dpoVlJYSwixDoYW8UQye+iorkH4F5UgYTwIqiWO4yscEgwmTZnMLaiIaqmCqpYPajZeFaIIaXfWWS-GkOfLXBOEZCkqU7OYIYQQYnaDKiiSwOlIKB1sN4EY391q4XtpZJqGNYBYzwAMvoxlhlqwFuiOqXDDLFU7ssQu+V+iQXMOhcI4QgA */
   context: {
     searchPhrase: undefined,
     searchResults: [],
@@ -23,124 +23,123 @@ export const machine = createMachine({
   id: 'assessmentForm',
 
   states: {
-    'Search address': {
-      initial: 'Check phrase',
-
-      states: {
-        'Check phrase': {
-          always: [
-            {
-              target: 'Some phrase',
-              cond: 'isPhraseEntered',
-            },
-            'No phrase',
-          ],
-        },
-
-        'No phrase': {
-          on: {
-            TYPE: {
-              target: 'Check phrase',
-              actions: 'updateSearchPhrase',
-            },
-          },
-        },
-
-        'Some phrase': {
-          on: {
-            TYPE: {
-              target: 'Check phrase',
-              actions: 'updateSearchPhrase',
-            },
-
-            SEARCH: '#assessmentForm.Select point.Submitting form',
-          },
-        },
+    'Point selection': {
+      on: {
+        NEXT: 'Result',
       },
-    },
 
-    'Select point': {
       states: {
-        'Submitting form': {
-          invoke: {
-            onDone: [
-              {
-                target: 'Address selection',
+        'Search address': {
+          initial: 'Check phrase',
 
-                actions: [
-                  {
-                    type: 'updateSearchResults',
-                  },
-                ],
+          states: {
+            'Check phrase': {
+              always: [
+                {
+                  target: 'Some phrase',
+                  cond: 'isPhraseEntered',
+                },
+                'No phrase',
+              ],
+            },
 
-                cond: 'hasAddressess',
-              },
-              'No addresses',
-            ],
-            onError: {
-              target: 'Error',
-              actions: {
-                type: 'updateError',
+            'No phrase': {
+              on: {
+                TYPE: {
+                  target: 'Check phrase',
+                  actions: 'updateSearchPhrase',
+                },
               },
             },
-            src: 'fetchSearchResults',
+
+            'Some phrase': {
+              on: {
+                TYPE: {
+                  target: 'Check phrase',
+                  actions: 'updateSearchPhrase',
+                },
+
+                SEARCH:
+                  '#assessmentForm.Point selection.Select point.Submitting form',
+              },
+            },
           },
         },
 
-        Initial: {},
-
-        'Address selection': {
+        'Select point': {
           states: {
-            Initial: {
-              on: {
-                SELECT: {
-                  target: 'Point selected',
-                  actions: 'updateSelectedPoint',
+            'Submitting form': {
+              invoke: {
+                onDone: [
+                  {
+                    target: 'Address selection',
+
+                    actions: [
+                      {
+                        type: 'updateSearchResults',
+                      },
+                    ],
+
+                    cond: 'hasAddressess',
+                  },
+                  'No addresses',
+                ],
+                onError: {
+                  target: 'Error',
+                  actions: {
+                    type: 'updateError',
+                  },
                 },
+                src: 'fetchSearchResults',
               },
             },
 
-            'Point selected': {
-              on: {
-                SELECT: {
-                  target: 'Point selected',
-                  internal: true,
-                  actions: 'updateSelectedPoint',
+            Initial: {},
+
+            'Address selection': {
+              states: {
+                Initial: {
+                  on: {
+                    SELECT: {
+                      target: 'Point selected',
+                      actions: 'updateSelectedPoint',
+                    },
+                  },
+                },
+
+                'Point selected': {
+                  on: {
+                    SELECT: {
+                      target: 'Point selected',
+                      internal: true,
+                      actions: 'updateSelectedPoint',
+                    },
+                  },
                 },
               },
+
+              initial: 'Initial',
             },
+
+            Error: {},
+            'No addresses': {},
           },
 
           initial: 'Initial',
         },
-
-        Error: {},
-        'No addresses': {},
       },
 
-      initial: 'Initial',
+      type: 'parallel',
     },
 
-    Screen: {
-      states: {
-        'Address search': {
-          on: {
-            NEXT: 'Result',
-          },
-        },
-
-        Result: {
-          on: {
-            PREVIOUS: 'Address search',
-          },
-        },
+    Result: {
+      on: {
+        PREVIOUS: '#assessmentForm.Point selection',
       },
-
-      initial: 'Address search',
     },
   },
 
-  type: 'parallel',
+  initial: 'Point selection',
 }).withConfig({
   actions: {
     updateSearchPhrase: assign({

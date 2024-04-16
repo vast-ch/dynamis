@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import AssessmentHeader from './header';
 import AssessmentMachine from './machine';
-import AssessmentAddress from './address';
+import AssessmentPoint from './point';
 import AssesmentResult from './result';
 
 // eslint-disable-next-line ember/no-empty-glimmer-component-classes
@@ -14,9 +14,9 @@ export default class AssessmentComponent extends Component {
       <AssessmentMachine as |state send|>
         <AssessmentHeader />
 
-        {{#if (state.matches 'Screen.Address search')}}
-          <AssessmentAddress @state={{state}} @send={{send}} />
-        {{else if (state.matches 'Screen.Result')}}
+        {{#if (state.matches 'Point selection')}}
+          <AssessmentPoint @state={{state}} @send={{send}} />
+        {{else if (state.matches 'Result')}}
           <AssesmentResult @state={{state}} @send={{send}} />
         {{else}}
           Out

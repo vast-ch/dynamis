@@ -9,7 +9,7 @@ import { t } from 'ember-intl';
 import HeroIcon from 'ember-heroicons/components/hero-icon';
 import { on } from '@ember/modifier';
 
-export interface AssessmentAddressSignature {
+export interface AssessmentPointSignature {
   // Element: HTMLTableElement;
   Args: {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,17 +19,19 @@ export interface AssessmentAddressSignature {
 }
 
 // eslint-disable-next-line ember/no-empty-glimmer-component-classes
-export default class AssessmentAddressComponent extends Component<AssessmentAddressSignature> {
+export default class AssessmentPointComponent extends Component<AssessmentPointSignature> {
   <template>
     <AssessmentForm
-      @submitEnabled={{@state.matches 'Search address.Some phrase'}}
+      @submitEnabled={{@state.matches
+        'Point selection.Search address.Some phrase'
+      }}
       @onSubmit={{fn @send 'SEARCH'}}
       @onType={{fn @send 'TYPE'}}
       @searchPhrase={{@state.context.searchPhrase}}
     />
 
     <div class='grid grid-cols-5 w-full py-4 gap-4 flex-1'>
-      {{#if (@state.matches 'Select point.Address selection')}}
+      {{#if (@state.matches 'Point selection.Select point.Address selection')}}
         <div class='md:col-span-3 col-span-5 h-64 overflow-y-scroll'>
           <AssessmentMap
             @points={{@state.context.searchResults}}
@@ -48,7 +50,7 @@ export default class AssessmentAddressComponent extends Component<AssessmentAddr
         <div
           class='col-span-5 h-64 rounded-lg border-2 border-dashed border-gray-300 p-12 text-center flex items-center justify-center'
         >
-          {{#if (@state.matches 'Select point.No addresses')}}
+          {{#if (@state.matches 'Point selection.Select point.No addresses')}}
             <div class='rounded-md bg-yellow-50 p-4'>
               <div class='flex'>
                 <div class='flex-shrink-0'>
@@ -86,7 +88,9 @@ export default class AssessmentAddressComponent extends Component<AssessmentAddr
         @type='button'
         {{on 'click' (fn @send 'NEXT')}}
         disabled={{if
-          (@state.matches 'Select point.Address selection.Point selected')
+          (@state.matches
+            'Point selection.Select point.Address selection.Point selected'
+          )
           false
           true
         }}
@@ -99,6 +103,6 @@ export default class AssessmentAddressComponent extends Component<AssessmentAddr
 
 declare module '@glint/environment-ember-loose/registry' {
   export default interface Registry {
-    AssessmentAddress: typeof AssessmentAddressComponent;
+    AssessmentAddress: typeof AssessmentPointComponent;
   }
 }
