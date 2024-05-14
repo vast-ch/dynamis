@@ -185,8 +185,8 @@ export const machine = createMachine({
   },
   services: {
     fetchSearchResults: (context) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       console.log(geoQuery(context.searchPhrase));
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const ret = (getService(context, 'dynamisStore') as any).request(
         geoQuery(context.searchPhrase),
       );
@@ -195,8 +195,9 @@ export const machine = createMachine({
     },
     fetchAssessment: (context) => {
       console.log({ context });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const ret = (getService(context, 'dynamisStore') as any).request(
-        assessmentQuery(context.selectedPoint.id), // TODO
+        assessmentQuery(context?.selectedPoint?.id), // TODO
       );
       console.log({ ret });
       return ret;

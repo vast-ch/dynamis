@@ -3,6 +3,7 @@ import {
   type NextFn,
   type RequestContext,
 } from '@ember-data/request';
+import { htmlSafe } from '@ember/template';
 
 export interface Response {
   content: Location;
@@ -57,8 +58,10 @@ const GeoHandler: Handler = {
         return {
           // type: 'geo',
           id: item.id,
-          labelPlainText: parser.parseFromString(item.attrs.label, 'text/html')
-            .body.textContent,
+          labelPlainText: htmlSafe(
+            parser.parseFromString(item.attrs.label, 'text/html').body
+              .textContent || '',
+          ),
           ...item.attrs,
         };
       }) as T;

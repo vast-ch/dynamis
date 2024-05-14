@@ -38,7 +38,7 @@ export default class AssessmentTable extends Component<AssessmentTableSignature>
             @appearance={{if (eq point @selectedPoint) 'default' 'outlined'}}
             {{on 'click' (fn @select (hash point=point))}}
           >
-            {{{point.labelPlainText}}}
+            {{point.labelPlainText}}
           </Button>
         {{/each}}
 

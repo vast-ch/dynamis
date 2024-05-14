@@ -24,7 +24,8 @@
       "@ember-data/serializer//unstable-preview-types",
       "@ember-data/tracking/unstable-preview-types",
       "@warp-drive/core-types/unstable-preview-types"
-    ]
+    ],
+    "skipLibCheck": true
   },
   "glint": {
     "environment": [

@@ -30,3 +30,5 @@ remove|ember-template-lint|no-unknown-arguments-for-builtin-components|76|10|76|
 remove|ember-template-lint|require-input-label|72|8|72|8|952421deae2123f0578b86748ff0925d33ee067f|1713225600000|1715817600000|1718409600000|app/components/footer/newsletter.gts
 add|ember-template-lint|require-input-label|72|8|72|8|dd8ec3302ca76e570053bb87e0380b23516c2550|1713225600000|1715817600000|1718409600000|app/components/footer/newsletter.gts
 remove|ember-template-lint|no-bare-strings|18|55|18|55|90a7d3110fce32cdee753cafa775d08471c7d9c0|1713225600000|1715817600000|1718409600000|app/components/assessment/index.gts
+remove|ember-template-lint|no-bare-strings|20|16|20|16|875b015b14a926d6bddbc62f14f5a8ddd443e06d|1713225600000|1715817600000|1718409600000|app/components/assessment/index.gts
+remove|ember-template-lint|require-input-label|72|8|72|8|dd8ec3302ca76e570053bb87e0380b23516c2550|1713225600000|1715817600000|1718409600000|app/components/footer/newsletter.gts

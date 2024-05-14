@@ -1,5 +1,4 @@
 import Component from '@glimmer/component';
-import { t } from 'ember-intl';
 
 export interface AssessmentResultSignature {
   // Element: HTMLTableElement;
@@ -12,7 +11,7 @@ export interface AssessmentResultSignature {
 
 // eslint-disable-next-line ember/no-empty-glimmer-component-classes
 export default class AssessmentResultComponent extends Component<AssessmentResultSignature> {
-  <template>hi</template>
+  <template></template>
 }
 
 declare module '@glint/environment-ember-loose/registry' {

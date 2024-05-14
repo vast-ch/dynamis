@@ -6,7 +6,7 @@ export default class ScrollService extends Service {
   @service declare router: RouterService;
 
   get inView() {
-    return this.router.currentRoute.queryParams['scrollTo'];
+    return this.router?.currentRoute?.queryParams['scrollTo'];
   }
 
   get heroInView() {

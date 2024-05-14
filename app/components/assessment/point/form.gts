@@ -37,6 +37,7 @@ export default class AssessmentForm extends Component<AssessmentFormSignature> {
               <div class='mt-2'>
                 <div>
                   <div class='mt-2 flex rounded-md shadow-sm gap-4 items-end'>
+                    {{! template-lint-disable no-unknown-arguments-for-builtin-components  }}
                     <Input
                       @value={{@searchPhrase}}
                       placeholder={{t 'assessment.address.placeholder'}}

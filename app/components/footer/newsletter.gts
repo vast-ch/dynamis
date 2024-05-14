@@ -69,6 +69,7 @@ export default class FooterNewsletter extends Component {
         class='mt-6 sm:flex sm:max-w-md lg:mt-0'
         @onChange={{this.onChange}}
       >
+        {{! template-lint-disable require-input-label  }}
         <Input @type='hidden' name='form-name' @value='newsletter' />
         <div class='w-full min-w-0'>
           <Input

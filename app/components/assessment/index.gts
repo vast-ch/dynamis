@@ -19,7 +19,7 @@ export default class AssessmentComponent extends Component {
         {{else if (state.matches 'Assessment display')}}
           <AssesmentResult @state={{state}} @send={{send}} />
         {{else}}
-          Out
+
         {{/if}}
       </AssessmentMachine>
 
