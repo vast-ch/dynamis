@@ -1,0 +1,2 @@
+2024-04-04T13:35:50.586Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/index.hbs
+2024-04-04T13:35:50.616Z [warn] WARNING: {{page-title}} was not converted as it has positional parameters which can't be automatically converted. Source: app/templates/assessment.hbs

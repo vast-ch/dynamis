@@ -1,0 +1,45 @@
+{{! Hero section }}
+<div
+  {{scroll-into-view
+    shouldScroll=this.scroll.heroInView
+    options=(hash behavior="smooth")
+  }}
+  class="relative isolate pt-14"
+>
+  <Main::Hero::Background />
+  <div
+    class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-40"
+  >
+    <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+      {{! <Main::Hero::WeAreHiring /> }}
+      <h1
+        class="mt-10 max-w-lg text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl"
+      >
+        {{t "hero.heading"}}
+      </h1>
+      <p class="mt-6 text-lg leading-8 text-gray-600">
+        {{t "hero.description"}}
+      </p>
+      <div class="mt-10 flex items-center gap-x-6">
+        <LinkTo
+          @route="assessment"
+          @query={{hash scrollTo="top"}}
+          class="rounded-md bg-teal-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+        >
+          {{t "hero.get-started"}}
+        </LinkTo>
+        <LinkTo
+          class="text-sm font-semibold leading-6 text-gray-900"
+          @route="index"
+          @query={{hash scrollTo="features"}}
+        >
+          {{t "hero.learn-more"}}
+          <HeroIcon class="pl-1 h-4 inline" @icon="arrow-right" />
+        </LinkTo>
+      </div>
+    </div>
+    <div class="mt-16 sm:mt-24 lg:mt-0 lg:flex-shrink-0 lg:flex-grow">
+      <Main::Hero::Phone />
+    </div>
+  </div>
+</div>

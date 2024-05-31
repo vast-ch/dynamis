@@ -2,7 +2,7 @@
 
 module.exports = function (environment) {
   const ENV = {
-    modulePrefix: 'energaudi',
+    modulePrefix: 'dynamis',
     environment,
     rootURL: '/',
     locationType: 'history',

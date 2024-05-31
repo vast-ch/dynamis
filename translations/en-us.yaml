@@ -1,0 +1,75 @@
+company:
+  name: vast.ch
+application:
+  name: Dynamis
+menu:
+  hero: Product
+  features: Features
+  pricing: Pricing
+  company: vast.ch
+  close: Close menu
+  open: Open main menu
+  global: Global
+assessment:
+  page-title: Assessment
+  heading: Assessment
+  address:
+    label: Address
+    hint: That's the only thing we need
+    placeholder: Rothornstrasse, Interlaken 3800
+    submit: Search
+  cancel: Cancel
+  submit: Submit
+  table:
+    selectedPoint: Property
+  no-results:
+    heading: No results
+    description: No results for this Address, try changing your search phrase.
+  initial-message: Try entering your address to the field above...
+hero:
+  heading: Energy Performance Certificate in a click
+  description: Boost your family home's energy efficiency with our cutting-edge EPC computation service. Using machine learning and real data, we prioritize renovations and track their impact, saving you time and money while building a sustainable future for your loved ones.
+  get-started: Get started
+  title: Traditional Swiss wooden house with futuristic touches like solar panels.
+  learn-more: Learn more
+features:
+  heading: Lower your energy consumption. Start using our app today.
+  description: Our two-stage method enhances prediction accuracy and reliability, providing crucial insights to prioritize renovations an drive sustainable progress in line with the Energy Strategy 2050 goals.
+  w01:
+    heading: Quick
+    description: We just need to know your address. That's it. No long forms. No more of your time needed.
+  w02:
+    heading: Accurate
+    description: Our method has 13% error rate compared to other methods.
+  w03:
+    heading: Affordable
+    description: We think this data should be free at best, but also we need some resources for future development.
+pricing:
+  heading: Simple pricing, no-tricks
+  description: We believe in transparency and fair business practices. No extras, no hidden fees.
+  option1:
+    heading: One property, full assessment
+    description: All in one package.
+    what-is-included: What's included
+    feature1: EPC like rating
+    feature2: Neighbourhood, city and canton comparisons
+    feature3: Breakdown of the precision of the calculations
+    feature4: PDF with all the evaluations
+  call-to-action:
+    heading: One time payment
+    amount: CHF 5
+    button: Get access
+footer:
+  newsletter:
+    heading: Subscribe to our newsletter
+    description: The latest news, articles, and resources, sent to your inbox weekly.
+    label: Email
+    placeholder: john.doe@example.com
+    button: Subscribe
+  copyright:
+    company: vast.ch
+    github: Github
+    copy: ©️
+newsletter:
+  subscribed: Subscribed
+  error: Something went wrong, please try again later

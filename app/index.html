@@ -2,22 +2,30 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Energaudi</title>
+    <title>Dynamis</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     {{content-for "head"}}
 
+    <!-- TODO: Make this bundled in via NPM package -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="manifest" href="{{rootURL}}manifest.webmanifest">
+    <meta name="msapplication-config" content="{{rootURL}}browserconfig.xml">
+
     <link integrity="" rel="stylesheet" href="{{rootURL}}assets/vendor.css">
-    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/energaudi.css">
+    <link integrity="" rel="stylesheet" href="{{rootURL}}assets/dynamis.css">
 
     {{content-for "head-footer"}}
   </head>
-  <body>
+  <body class="min-h-lvh">
     {{content-for "body"}}
 
     <script src="{{rootURL}}assets/vendor.js"></script>
-    <script src="{{rootURL}}assets/energaudi.js"></script>
+    <script src="{{rootURL}}assets/dynamis.js"></script>
 
     {{content-for "body-footer"}}
   </body>
