@@ -1,5 +1,5 @@
 const path = require('path');
-const { frontile } = require('@frontile/theme/plugin');
+const { frontile, safelist } = require('@frontile/theme/plugin');
 
 const appRoot = path.join(__dirname, '../');
 const libraries = [
@@ -23,19 +23,5 @@ module.exports = {
     extend: {},
   },
   plugins: [frontile()],
-  safelist: [
-    { pattern: /^js-focus-visible/ },
-    { pattern: /^sr-only/ },
-
-    // Frontile Notifications Transistions
-    { pattern: /^notification-transition/ },
-
-    // Frontile Overlays Transistions and Sizes
-    { pattern: /^overlay/ },
-    { pattern: /^modal/ },
-    { pattern: /^drawer/ },
-
-    // Power Select
-    { pattern: /^ember-power-select/ },
-  ],
+  safelist: [...safelist],
 };
